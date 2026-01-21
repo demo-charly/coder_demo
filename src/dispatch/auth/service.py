@@ -225,7 +225,7 @@ def update(*, db_session, user: DispatchUser, user_in: UserUpdate) -> DispatchUs
         if field in update_data:
             setattr(user, field, update_data[field])
 
-    if user_in.organizations:
+    if not user_in.organizations:
         roles = []
 
         for role in user_in.organizations:
